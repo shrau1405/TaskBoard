@@ -555,7 +555,7 @@ input[type="radio"]:focus {
 /* Due date input for new task */
 .due-date-input {
   background-color: #E67E22;
-  color: white;
+  color: #ffffff;
   font-size: 1rem;
   padding: 10px 14px;
   border: none;
@@ -567,6 +567,7 @@ input[type="radio"]:focus {
   color: white;         /* You can change this to #ccc or any other */
   opacity: 1;           /* Ensures it's fully visible */
 }
+
 
 
 
