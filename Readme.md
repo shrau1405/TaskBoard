@@ -38,7 +38,7 @@ A responsive and interactive to-do list web application built with HTML, CSS, an
 ## 📁 Project Structure
 
 📁 To-do-list 
-├── 📄 todo.html
+├── 📄 index.html
 ├── 📄 todo.css
 ├── 📄 todo.js
 ├── 📄 README.md
@@ -47,14 +47,14 @@ A responsive and interactive to-do list web application built with HTML, CSS, an
 ## 📖 How to Run
 
 1. Download or clone the project folder  
-2. Open `todo.html` in your web browser  
+2. Open `index.html` in your web browser  
 3. Start adding, editing, and organizing your tasks!
 
 ---
 
 ## 👨‍💻 Author
 
-Created by **[Your Name]**  
+Created by **[Shravani Deshpande]**  
 As part of the Unified Mentor Front-End Assignment  
 🌐 https://unifiedmentor.com
 
@@ -63,3 +63,4 @@ As part of the Unified Mentor Front-End Assignment
 ## 📜 License
 
 This project is for educational purposes only.
+
