@@ -1,0 +1,572 @@
+/* Apply border-box model to all elements for consistent sizing */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding, set full height, and apply base font */
+html, body {
+  margin: 0;             /* Remove default margin */
+  padding: 0;            /* Remove default padding */
+  height: 100%;          /* Full viewport height */
+  font-family: 'Roboto', sans-serif;  /* Set base font */
+}
+
+/* Make body a vertical flex container */
+body {
+  display: flex;             /* Enable flexbox */
+  flex-direction: column;    /* Stack children vertically */
+}
+
+/* Main layout container holding sidebar and content */
+.container {
+  display: flex;         /* Horizontal flex layout */
+  flex-grow: 1;          /* Allow to expand and fill available space */
+  height: auto;          /* Flexible height based on content */
+}
+
+/* Header styling */
+.header {
+  display: flex;                         /* Flex container for logo + tagline */
+  justify-content: space-between;       /* Space between logo and tagline */
+  align-items: center;                  /* Vertically center content */
+  background: #2C3E50;                  /* Dark charcoal blue background */
+  color: #fff;                          /* White text color */
+  padding: 15px 30px;                   /* Padding inside the header */
+  border-bottom: 1px solid #ddd;        /* Bottom border for separation */
+  flex-wrap: wrap;                      /* Allow wrapping on smaller screens */
+}
+
+/* Logo section with icon and site name */
+.logo-section {
+  display: flex;                        /* Horizontal alignment of items */
+  align-items: center;                 /* Vertically center items */
+}
+
+/* Square box with checkmark inside */
+.logo-box {
+  width: 34px;
+  height: 34px;
+  background: #ffffff;                 /* White background for contrast */
+  color: #E67E22;                      /* Accent orange text color */
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 8px;                  /* Rounded corners */
+  display: flex;
+  align-items: center;                 /* Center icon vertically */
+  justify-content: center;             /* Center icon horizontally */
+  margin-right: 10px;                  /* Gap between box and site name */
+}
+
+/* Brand name styling */
+.site-name {
+  font-family: 'Carter One', cursive;  /* Bold playful font */
+  font-size: 28px;
+  color: #fff;                         /* White text */
+  letter-spacing: 1px;                 /* Slight spacing for readability */
+}
+
+/* Tagline centered in header */
+.tagline {
+  font-family: 'Patrick Hand', cursive; /* Handwritten font for personal touch */
+  font-size: 24px;
+  color: #fff;                          /* White text */
+  text-align: center;
+  flex-grow: 1;                         /* Expand to fill available space */
+  margin-left: 30px;                    /* Space from logo section */
+  letter-spacing: 0.3px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;            /* Stack logo and tagline vertically */
+    align-items: flex-start;           /* Align items to the left */
+  }
+  .tagline {
+    margin-left: 0;                    /* Remove left margin */
+    text-align: left;                  /* Left-align tagline text */
+    margin-top: 8px;                   /* Add top spacing */
+  }
+}
+
+
+/* Sidebar styling */
+.sidebar {
+  width: 250px;                     /* Fixed width for sidebar */
+  background: #ECF0F1;              /* Light gray background */
+  color: #2C3E50;                   /* Dark text color */
+  padding: 20px;                    /* Inner spacing */
+  flex-shrink: 0;                   /* Prevent sidebar from shrinking */
+}
+
+/* Search bar container */
+.search-container {
+  position: relative;              /* To position the search icon inside */
+  width: 100%;
+  margin-bottom: 20px;            /* Spacing below search box */
+}
+
+/* Search input styling */
+.search-container input {
+  width: 100%;
+  padding: 10px 40px 10px 10px;   /* Extra right padding for icon */
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  background: #f2f2f2;            /* Light background for input */
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Search icon button inside input */
+.search-btn {
+  position: absolute;             /* Position relative to search container */
+  right: 8px;                     /* Distance from right edge */
+  top: 50%;                       /* Center vertically */
+  transform: translateY(-50%);    /* Adjust for perfect vertical center */
+  background: none;              /* Transparent background */
+  border: none;
+  font-size: 18px;
+  color: #555;                    /* Dark gray icon */
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Section headings inside sidebar */
+.sidebar h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-weight: normal;
+  font-family: 'Patrick Hand', cursive;  /* Handwritten style font */
+  font-size: 22px;
+  color: #2C3E50;
+}
+
+/* Unordered list styling */
+.sidebar ul {
+  list-style: none;              /* Remove default bullets */
+  padding: 0;
+}
+
+/* List item (each filter option) */
+.sidebar li {
+  padding: 8px 0 8px 12px;       /* Vertical and left padding */
+  cursor: pointer;               /* Show pointer on hover */
+  border-radius: 4px;
+  display: flex;
+  align-items: center;           /* Center items vertically */
+}
+
+/* Hover effect for list items */
+.sidebar li:hover {
+  background: #D5DBDB;           /* Light background on hover */
+}
+
+/* Colored category indicators */
+.box {
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;             /* Space between box and label */
+  border-radius: 2px;
+}
+
+/* Personal category color */
+.red-box {
+  background: red;
+}
+
+/* Work category color */
+.blue-box {
+  background: blue;
+}
+
+
+/* Main content section */
+.main {
+  flex-grow: 1;                /* Takes remaining space beside sidebar */
+  padding: 20px;               /* Space around content */
+  background: #FFFFFF;         /* Clean white background */
+  overflow-y: auto;            /* Allows vertical scrolling if content overflows */
+}
+
+/* Main heading style */
+.main h1 {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 28px;
+  color: #2C3E50;              /* Dark blue text */
+}
+
+/* Container for task input section */
+.task-input {
+  background: #fff;            /* White background */
+  border: 1px solid #ddd;      /* Light border */
+  border-radius: 6px;          /* Slightly rounded corners */
+  padding: 15px;
+  margin-bottom: 20px;         /* Space below the input box */
+}
+
+/* Text input for task name */
+.task-input input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Grouping radio buttons side by side */
+.radio-group {
+  display: flex;
+  gap: 20px;                   /* Space between each radio option */
+  margin-top: 10px;
+  
+}
+/* Grouping radio buttons side by side */
+.radio-group2 {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+  
+}
+
+/* Hide default radio appearance */
+.radio-group2 input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #959595;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Checked state */
+.radio-group2 input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+  background-color: #333;
+}
+
+/* "Add Task" button styling */
+.task-input button {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;                 /* Full width */
+  background: #E67E22;         /* Orange accent */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Button hover effect */
+.task-input button:hover {
+  background: #CF711F;         /* Darker orange on hover */
+}
+
+/* Task list container (ul) */
+#taskList {
+  list-style: none;            /* Remove default bullets */
+  padding: 0;
+}
+
+/* Individual task item styling */
+.task {
+  background: #fff;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-left: 5px solid #E67E22; /* Default accent bar */
+  border-radius: 4px;
+  display: flex;
+  align-items: center;         /* Vertically center content */
+  justify-content: space-between; /* Space between content and action buttons */
+}
+
+/* Margin for text inside task */
+.task span {
+  margin-left: 8px;
+}
+
+/* Style for completed tasks */
+.task.completed span {
+  text-decoration: line-through;  /* Crossed-out text */
+  color: #999;                    /* Gray color */
+}
+
+/* Red accent for personal tasks */
+.task.personal {
+  border-left: 8px solid red;
+}
+
+/* Blue accent for work tasks */
+.task.work {
+  border-left: 8px solid blue;
+}
+
+/* Buttons inside each task (edit, delete, complete) */
+.task button {
+  background: transparent;
+  border: none;
+  color: #666;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;  /* Smooth hover effect */
+}
+
+/* Hover effect for task buttons */
+.task button:hover {
+  background: #f0f0f0;         /* Light gray background on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;    /* Stack sidebar and main vertically */
+  }
+  .sidebar {
+    width: 100%;
+    border-bottom: 1px solid #ddd;  /* Divider line between sections */
+  }
+}
+
+/* Footer Section */
+.footer {
+  background: #2C3E50;           /* Same background as header */
+  color: #fff;                   /* White text */
+  padding: 20px 30px;            /* Space inside footer */
+  text-align: center;            /* Center-align text */
+  font-family: 'Patrick Hand', cursive;  /* Playful handwritten font */
+  margin-top: auto;              /* Push footer to bottom if content is short */
+}
+
+/* Container for all footer elements */
+.footer-content {
+  display: flex;
+  flex-direction: column;        /* Stack items vertically */
+  align-items: center;           /* Center-align horizontally */
+  gap: 10px;                     /* Space between social icons and contact */
+}
+
+/* Container for social media icons */
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;                     /* Space between icons */
+  font-size: 18px;
+}
+
+/* Style for social links */
+.social-icons a {
+  color: #fff;                   /* White icons */
+  text-decoration: none;         /* Remove underline */
+  display: flex;
+  align-items: center;           /* Vertically center icon with separator */
+}
+
+/* Separator (vertical bar) between icons */
+.separator {
+  color: #fff;
+  font-weight: bold;
+  margin: 0 6px;
+}
+
+/* Contact text container */
+.contact {
+  font-size: 16px;
+}
+
+/* Style for phone and email text */
+.contact-info {
+  margin: 0 8px;
+  font-family: 'Roboto', sans-serif;  /* Simple readable font */
+}
+
+/* Sticky Notes: Add Button */
+#addStickyBtn {
+  background-color: #E67E22;  /* Accent orange */
+  border: none;               /* Remove default border */
+  padding: 10px 16px;         /* Inner spacing */
+  font-size: 15px;
+  cursor: pointer;            /* Pointer on hover */
+  margin-bottom: 10px;
+  color: #fff;                /* White text */
+  border-radius: 4px;         /* Slightly rounded corners */
+}
+
+/* Hover effect for Add Sticky button */
+#addStickyBtn:hover {
+  background: #CF711F;        /* Darker orange on hover */
+}
+
+/* Sticky Notes container */
+#stickyNotesContainer {
+  display: flex;              /* Arrange notes in a row */
+  flex-wrap: wrap;            /* Wrap to next line if needed */
+  gap: 10px;                  /* Space between notes */
+}
+
+/* Individual sticky note */
+.sticky-note {
+  width: 180px;
+  height: 180px;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #555;                /* Dark gray text */
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);  /* Light shadow for depth */
+  resize: none;               /* Prevent resizing */
+  border: none;               /* Remove border */
+  outline: none;              /* Remove focus outline */
+  background-color: #FFF9AE;  /* Default yellow */
+  border-radius: 4px;
+}
+
+/* Rotating sticky note colors in fixed order */
+.sticky-note:nth-child(4n+1) { background-color: #FFF9AE; } /* Yellow */
+.sticky-note:nth-child(4n+2) { background-color: #D3F8E2; } /* Mint */
+.sticky-note:nth-child(4n+3) { background-color: #FFD3D3; } /* Pink */
+.sticky-note:nth-child(4n+4) { background-color: #D0E1FF; } /* Blue */
+
+/* Wrapper for sticky note (to contain delete button) */
+.sticky-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+/* Delete button for sticky note */
+.sticky-delete {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Delete icon image styling */
+.sticky-delete img {
+  width: 20px;
+  transition: transform 0.2s;  /* Smooth zoom on hover */
+}
+
+/* Zoom effect on hover */
+.sticky-delete:hover img {
+  transform: scale(1.2);
+}
+
+/* Radio buttons: remove default focus outline */
+input[type="radio"] {
+  accent-color: #2C3E50;   /* Match theme (optional) */
+  outline: none;
+}
+
+input[type="radio"]:focus {
+  outline: none;
+  box-shadow: none;        /* Remove glow on focus */
+}
+
+/* Task styling */
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+
+/* Task checkbox and label wrapper */
+.task label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;           /* Prevent shrinking */
+}
+
+/* Task text */
+.task span {
+  flex-grow: 1;             /* Take up remaining space */
+  overflow-wrap: anywhere;  /* Break long words if needed */
+}
+
+/* Container for edit/delete buttons */
+.task-buttons {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;           /* Don't shrink buttons */
+}
+
+/* Edit/Delete buttons */
+.task button {
+  background-color: #E67E22;   /* Accent color */
+  border: none;
+  color: white;
+  padding: 4px 0;
+  width: 60px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for task buttons */
+.task button:hover {
+  background-color: #CF711F;   /* Darker on hover */
+}
+
+/* Error message styling */
+#errorMessage {
+  display: none;         /* Hidden by default; shown when there's a validation error */
+  color: red;            /* Red text to indicate error */
+  font-size: 16px;       /* Consistent with other UI text */
+  margin-top: 10px;      /* Space above the error */
+}
+
+/* Due date text displayed on tasks */
+.due-date {
+  font-size: 0.85rem;    /* Slightly smaller font */
+  margin-left: 10px;     /* Space from preceding element */
+  color: #888;           /* Light gray color */
+  font-style: italic;    /* Italicize to differentiate it */
+}
+
+/* Inline task editing: text input and date input */
+.edit-text,
+.edit-date {
+  padding: 6px;          /* Inner spacing */
+  font-size: 0.95rem;    /* Slightly smaller than base text */
+  margin-bottom: 8px;    /* Space between input fields */
+  width: 95%;            /* Slight margin inside container */
+  display: block;        /* Ensure it takes full width line */
+}
+
+/* Due date input for new task */
+.due-date-input {
+  background-color: #E67E22;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 4px;
+  margin-top: 10px;
+  width: 100%;
+}
+#dueDateInput::placeholder {
+  color: white;         /* You can change this to #ccc or any other */
+  opacity: 1;           /* Ensures it's fully visible */
+}
+
+
+

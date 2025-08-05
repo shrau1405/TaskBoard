@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic HTML metadata setup -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Page Title -->
+  <title>TaskBoard</title>
+
+  <!-- Link to external CSS file for styling -->
+  <link rel="stylesheet" href="todo.css"/>
+
+  <!-- Google Fonts: Carter One for title, Patrick Hand for tagline, Roboto for body text -->
+  <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Patrick+Hand&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Font Awesome for icons (checkbox, trash, edit, etc.) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Inline CSS to initially hide key sections until navigation is triggered -->
+  <style>
+    .main, #taskInputSection, #taskList, #stickyWall {
+      display: none; /* Sections hidden by default for navigation control */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header section with logo and tagline -->
+  <header class="header">
+    <div class="logo-section">
+      <div class="logo-box">✓</div> <!-- Checkmark logo box -->
+      <span class="site-name">TaskBoard</span> <!-- Site title -->
+    </div>
+    <div class="tagline">Make every minute count</div> <!-- Site tagline -->
+  </header>
+
+  <!-- Main container that holds sidebar and task content -->
+  <div class="container">
+
+    <!-- Sidebar section for navigation and filters -->
+    <aside class="sidebar">
+
+      <!-- Search input box with magnifying glass icon -->
+      <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search tasks..." />
+        <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+
+      <!-- Navigation filters for task views -->
+      <nav>
+        <h3><strong>TASKS</strong></h3>
+        <ul>
+          <li id="filter-home" onclick="setFilter('home')">Home</li>
+          <li id="filter-today" onclick="setFilter('today')">Today</li>
+          <li id="filter-upcoming" onclick="setFilter('upcoming')">Upcoming</li>
+          <li id="filter-sticky" onclick="setFilter('sticky')">Sticky Wall</li>
+        </ul>
+
+        <!-- Filter options for task categories -->
+        <h3><strong>LISTS</strong></h3>
+        <ul>
+          <li id="filter-personal" onclick="setFilter('personal')">
+            <span class="box red-box"></span> Personal
+          </li>
+          <li id="filter-work" onclick="setFilter('work')">
+            <span class="box blue-box"></span> Work
+          </li>
+        </ul>
+      </nav>
+
+    </aside>
+
+
+    <main class="main">
+      <!-- Main heading that changes based on selected filter -->
+      <h1 id="main-heading">Home</h1>
+      <!-- Section to input new tasks -->
+      <div class="task-input" id="taskInputSection">
+        <!-- Text input for entering task -->
+        <input type="text" id="taskInput" placeholder="Add a task..." /><br>
+            <!-- Optional due date input -->
+<input type="text" id="dueDateInput" class="due-date-input" placeholder="Enter due date (optional)" />
+
+
+
+
+
+        <!-- Radio buttons to select when the task is due -->
+        <div class="radio-group">
+          <label><input type="radio" name="taskTime" value="today" /> Today</label>
+          <label><input type="radio" name="taskTime" value="upcoming" /> Upcoming</label>
+        </div>
+        <!-- Radio buttons to select task category -->
+        <div class="radio-group2">
+          <label><input type="radio" name="taskList" value="personal" /> Personal</label>
+          <label><input type="radio" name="taskList" value="work" /> Work</label>
+        </div>
+        <!-- Button to add a new task -->
+    <button onclick="addTask()"><strong>Add Task</strong></button>
+    <!-- Error message display -->
+    <p id="errorMessage"></p>
+      </div>
+      <!-- Task list display area -->
+      <ul id="taskList"></ul>
+      <!-- Sticky notes section -->
+      <div id="stickyWall">
+        <!-- Button to add a sticky note -->
+        <button id="addStickyBtn"><strong>Add Sticky Note</strong></button>
+        <!-- Container where sticky notes will appear -->
+        <div id="stickyNotesContainer"></div>
+      </div>
+    </main>
+  </div>
+
+<!-- Footer section -->
+<footer class="footer">
+  <div class="footer-content">
+    
+    <!-- Social media icons with separators -->
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <span class="separator">|</span>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <span class="separator">|</span>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <span class="separator">|</span>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
+    <!-- Contact information -->
+    <div class="contact">
+      <span class="contact-info">+91 9876543210</span>
+      <span class="contact-info">|</span>
+      <span class="contact-info">example@email.com</span>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Linking the JavaScript file -->
+<script src="todo.js"></script>
+
+</body>
+</html>
+
