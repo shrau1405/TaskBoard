@@ -563,10 +563,12 @@ input[type="radio"]:focus {
   margin-top: 10px;
   width: 100%;
 }
-#dueDateInput::placeholder {
-  color: white;         /* You can change this to #ccc or any other */
-  opacity: 1;           /* Ensures it's fully visible */
+input::placeholder {
+  color: #ffffff; /* Light gray */
+  font-style: italic;
 }
+
+
 
 
 
