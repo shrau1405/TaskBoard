@@ -223,32 +223,35 @@ body {
   display: flex;
   gap: 20px;
   margin-top: 10px;
-  
 }
 
-/* Hide default radio appearance */
+/* Custom square radio */
 .radio-group2 input[type="radio"] {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   border: 2px solid #959595;
   background-color: #fff;
   cursor: pointer;
   position: relative;
+  border-radius: 2px; /* Optional: makes it a soft square */
+  padding: 0;
 }
 
 /* Checked state */
 .radio-group2 input[type="radio"]:checked::after {
   content: "";
   position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 10px;
-  height: 10px;
+  top: 2px;
+  left: 2px;
+  width: 6px;
+  height: 6px;
   background-color: #333;
+  border-radius: 1px; /* Optional: match outer border */
 }
+
 
 /* "Add Task" button styling */
 .task-input button {
@@ -567,6 +570,7 @@ input::placeholder {
   color: #ffffff; /* Light gray */
   font-style: italic;
 }
+
 
 
 
